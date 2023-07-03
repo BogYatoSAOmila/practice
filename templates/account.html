@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>Аккаунт</title>
+    <link rel='stylesheet' href="{{ url_for('static',filename='css/styles.css') }}" type='text/css'>
+    <form action='' method='post'>
+      {% if full_name %}
+      <p class="account">Привет, {{full_name}}! </p>
+      {% endif %}
+    </form>
+</head>
+<body>
+
+</body>
+</html>

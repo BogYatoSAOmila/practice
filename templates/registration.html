@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>Регистрация</title>
+    <link rel='stylesheet' href="{{ url_for('static',filename='css/styles-reg.css') }}" type='text/css'>
+</head>
+<body>
+<div>
+    <img class='img' src='/static/logo.png'>
+</div>
+<div class='signupForm'>
+    <form action='' class='form' method='post'>
+        <div id="profile">
+            <div class='inputContainer'>
+                <input type='text' class='input' placeholder='a' name='username'>
+                <label for='username' class='label'>Имя пользователя</label>
+            </div>
+
+            <div class='inputContainer'>
+                <input type='text' class='input' placeholder='a' name='idnumber'>
+                <label for='idnumber' class='label'>ID номер</label>
+            </div>
+
+            <div class='inputContainer'>
+                <input type='text' class='input' placeholder='a' name='lastname'>
+                <label for='lastname' class='label'>Фамилия</label>
+            </div>
+
+            <div class='inputContainer'>
+                <input type='text' class='input' placeholder='a' name='firstname'>
+                <label for='firstname' class='label'>Имя</label>
+            </div>
+
+            <div class='inputContainer'>
+                <input type='text' class='input' placeholder='a' name='department'>
+                <label for='department' class='label'>Департамент</label>
+            </div>
+
+            <div class='inputContainer'>
+                <input type='text' class='input' placeholder='a' name='cohort1'>
+                <label for='cohort1' class='label'>Группа</label>
+            </div>
+
+            <div id='dop'>
+                <div class='inputContainer'>
+                    <input list="list1" type='text' class='input' placeholder='a' name='course1'>
+                    <label for='course1' class='label'>Курс1</label>
+                    <datalist id="list1">
+                        <option value="ОКАЭЦ">
+                        <option value="ТвиМС">
+                        <option value="Высшая математика">
+                        <option value="Информационная экология">
+                        <option value="Введение в ИТ">
+                        <option value="Иностранный язык">
+                        <option value="Электроника">
+                        <option value="Правоведение">
+                    </datalist>
+                </div>
+
+                <div class='inputContainer'>
+                    <input list="list2" type='text' class='input' placeholder='a' name='role1'>
+                    <label for='role1' class='label'>Роль1</label>
+                    <datalist id="list2">
+                        <option value="student">
+                    </datalist>
+                </div>
+            </div>
+        </div>
+            <div class="counter" onclick="addDop()">+</div>
+            <div class="counter" onclick="delDop()">-</div>
+            <div class='button'>
+                <input type='submit' class='submitBtn' value='Регистрация'>
+            </div>
+    </form>
+</div>
+    <script  src="/static/script.js"></script>
+</body>
+</html>

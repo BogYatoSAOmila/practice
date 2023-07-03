@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>Вход</title>
+    <link rel='stylesheet' href="{{ url_for('static',filename='css/styles.css') }}" type='text/css'>
+</head>
+<body>
+<div>
+    <img class='imgContainer' src='/static/logo.png'>
+</div>
+<div class='signupForm'>  <!-- Мы создаем контейнер div для хранения элемента формы. Каждый из входных данных формы
+вместе с её текстовой меткой помещается в div контейнера. Метки служат для информирования пользователя о том, какую
+информацию должен содержать каждый ввод. -->
+
+    <form action='' class='form' method='post'>
+        <div class='container'>
+            <div class='inputContainer'>
+                <input type='text' class='input' placeholder='a' name='username'>
+                <label for='username' class='label'>Имя пользователя</label>
+            </div>
+
+            <div class='inputContainer'>
+                <input type='text' class='input' placeholder='a' name='idnumber'>
+                <label for='idnumber' class='label'>ID номер</label>
+            </div>
+        </div>
+
+        <div class='button'>
+                <input type='submit' class='submitBtn' value='Войти' name='login'>
+                <input type='submit' class='submitBtn' value='Регистрация' name='registration'>
+        </div>
+    </form>
+</div>
+</body>
+</html>
