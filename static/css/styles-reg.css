@@ -1,0 +1,182 @@
+/* Настройка базового стиля */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+/* Выравниваем эмблему */
+.img {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 5%;
+}
+
+/* Выравниваем форму для заполнения по центру */
+.signupForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: silver;
+}
+
+/* Изменяем форму. Устанавливаем фон белым,
+придаём ему ширину 300 пикселей, добавляем
+некоторую кривизну вокруг формы и, наконец,
+устанавливаем тень вокруг поля, задаём
+немного места под элементом. */
+.form {
+  background-color: white;
+  width: 300px;
+  border-radius: 20px;
+  padding: 20px 40px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+/* Оформим форму div, которая содержит входные
+данные формы и метки формы. Устанавливаем для
+свойства position значение relative. Это позволит
+нам размещать дочерние элементы input и label
+так, как мы хотим. Устанавливаем ширину, чтобы
+она занимала 90% от всей ширины контейнера. */
+.inputContainer {
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin-bottom: 17px;
+}
+
+/* Оформляем наши входные данные. Устанавливаем
+position значение absolute. Это позволит нам
+переместить каждую из них в верхнюю левую часть
+относительно расположенного родительского
+контейнера. Скрываем текст-заполнитель
+(символы "a"), чтобы они не перекрывались с
+текстом внутри каждой метки. Текст-заполнитель
+понадобится при реализации перехода: */
+.input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid silver;
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+}
+
+/* Скрываем текст-заполнитель (a) */
+::placeholder {
+  color: transparent;
+}
+
+/* Оформляем текстовые метки. На метке отображается
+текст, указывающий, какая информация ожидается
+внутри входных данных. Устанавливаем её положения в
+абсолютное. Установив свойства top и left, мы
+можем перемещать текст вверх относительно его
+контейнера. Устанавливаем переход продолжительностью
+0,5 секунды. Именно столько времени потребуется
+тексту для перемещения вверх при наведении курсора
+мыши. Устанавливаем z-индекс равным 0. Низкий
+z-индекс гарантирует, что метка будет расположена
+позади других элементов, расположенных "выше",
+если они когда-либо перекрываются. */
+.label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  background-color: white;
+  color: silver;
+  font-size: 16px;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+/* Выравниваем кнопку */
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Добавляем несколько плавных анимаций с помощью
+transform свойства CSS, которое немного перемещает
+кнопку вверх и меняет цвет при наведении на нее
+курсора */
+.submitBtn {
+  display: block;
+  padding: 15px 30px;
+  border: none;
+  background-color: #32006e;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.submitBtn:hover {
+  background-color: #6400a0;
+  transform: translateY(-2px);
+}
+
+/* Выполняем некоторые изменения состояния. Когда
+ввод получает фокус, мы хотим расположить его метку
+за пределами верхней части контейнера (-7px),
+на 3 пикселя слева, уменьшить размер шрифта до 14
+и изменить цвет на фиолетовый */
+.input:focus + .label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+  color: #32006e;
+}
+
+/* Добавляем фиолетовую рамку вокруг ввода, когда
+он получит фокус */
+.input:focus {
+  border: 2px solid #32006e;
+}
+
+/* Укажем, что при вводе значения во входные данные
+и изменении фокуса мы хотим, чтобы метка оставалась
+плавающей. Укажем, чтобы текст метки терял свой
+фиолетовый цвет */
+.input:not(:placeholder-shown) + .label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Оформление кнопок добавления Курса и Роли */
+.counter
+{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  border: 1px dashed grey;
+  margin: 5px 0;
+  border-radius: 15px;
+}
+
+.counter:hover
+{
+  cursor: pointer;
+  background-color: #32006e;
+}
