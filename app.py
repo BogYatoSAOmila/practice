@@ -1,20 +1,20 @@
-# импорт необходимых инструментов
+# РёРјРїРѕСЂС‚ РЅРµРѕР±С…РѕРґРёРјС‹С… РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
 import requests
 from flask import Flask, render_template, request, redirect
 import psycopg2
 from openpyxl import Workbook
 import datetime
 
-# создаём приложение
+# СЃРѕР·РґР°С‘Рј РїСЂРёР»РѕР¶РµРЅРёРµ
 app = Flask(__name__)
 
-# подключение к базе данных
+# РїРѕРґРєР»СЋС‡РµРЅРёРµ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С…
 conn = psycopg2.connect(database='service_db',
                         user='postgres',
                         password='1234',
                         host='localhost',
                         port='5432')
-# курсор для обращения к базе данных
+# РєСѓСЂСЃРѕСЂ РґР»СЏ РѕР±СЂР°С‰РµРЅРёСЏ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С…
 cursor = conn.cursor()
 
 
@@ -23,7 +23,7 @@ def index():
     return redirect('/login/')
 
 
-# декоратор, отвечающий за вход
+# РґРµРєРѕСЂР°С‚РѕСЂ, РѕС‚РІРµС‡Р°СЋС‰РёР№ Р·Р° РІС…РѕРґ
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -47,7 +47,7 @@ def login():
     return render_template('login.html')
 
 
-# декоратор, отвечающий за регистрацию
+# РґРµРєРѕСЂР°С‚РѕСЂ, РѕС‚РІРµС‡Р°СЋС‰РёР№ Р·Р° СЂРµРіРёСЃС‚СЂР°С†РёСЋ
 @app.route('/registration/', methods=['POST', 'GET'])
 def registration():
     if request.method == 'POST':
@@ -97,13 +97,13 @@ def registration():
     return render_template('registration.html')
 
 
-# Добавление данных из базы данных в Excel файл
+# Р”РѕР±Р°РІР»РµРЅРёРµ РґР°РЅРЅС‹С… РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С… РІ Excel С„Р°Р№Р»
 class ExpDb:
     wb = Workbook()
     ws = wb.active
-    ws.title = 'Service'  # Лист в Excel
+    ws.title = 'Service'  # Р›РёСЃС‚ РІ Excel
 
-    SQL_QUERY = 'SELECT * FROM service_db;'  # Лист базы данных
+    SQL_QUERY = 'SELECT * FROM service_db;'  # Р›РёСЃС‚ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 
     conn = psycopg2.connect(database='service_db',
                             user='postgres',
@@ -124,10 +124,10 @@ class ExpDb:
     for result in row:
         ws.append(list(result))
 
-    wb.save('Service_db.xlsx')  # Сохранение Excel файла
+    wb.save('Service_db.xlsx')  # РЎРѕС…СЂР°РЅРµРЅРёРµ Excel С„Р°Р№Р»Р°
 
 
-# очищение базы данных в PostgreSQL
+# РѕС‡РёС‰РµРЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РІ PostgreSQL
 x = datetime.datetime.today().weekday()
 psql = 'DELETE FROM service_db;'
 if x == 0:
